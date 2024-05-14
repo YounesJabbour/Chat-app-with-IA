@@ -13,10 +13,10 @@ import ChatBubble from "./ChatBubble";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const ChatGPT = () => {
-  const apiKey = "AIzaSyDZ_VAUmLXa3SFrQxQE-Bueueg1N5SzhRA";
-  const geminiHost =
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" +
-    apiKey;
+  const apiKey = process.env.EXPO_PUBLIC_API_KEY;
+  const host = process.env.EXPO_PUBLIC_API_URL;
+
+  const geminiHost = host + "?key=" + apiKey;
 
   const [userInput, setuserInput] = useState("");
   const [chat, setchat] = useState([]);
